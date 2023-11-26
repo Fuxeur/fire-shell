@@ -20,12 +20,16 @@ print("installing package..")
 
 os.system("pip install tqdm")
 
+if my_os == "Linux":
+    os.system("apt install python3-tqdm")
+
 from tqdm import tqdm
 
 req = ["colorama","socket"]
 for i in tqdm(range(len(req))):
     os.system("pip install " + req[i])
-
+    if my_os == "Linux":
+        os.system("apt install python3-" + req[i])
 lang = ["en"]
 
 if len(lang) == 1:
